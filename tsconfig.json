@@ -1,0 +1,28 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+    },
+    "lib": ["esnext", "dom"],
+    "types": [
+      "@dcloudio/types",
+      "@types/wechat-miniprogram",
+      "@uni-helper/uni-app-types",
+      "@uni-helper/uni-ui-types",
+    ],
+    // "outDir": "./"
+  },
+  "exclude": ["node_modules", "dist"],
+  // vueCompilerOptions 是一个特殊的配置选项，这允许定制 Vue 的编译器行为。其中的nativeTags 是一个数组，它定义了哪些标签应被视为原生 HTML 标签。这个配置选项只影响 Vue 的编译器行为，不会影响其他 TypeScript 编译选项。
+  "vueCompilerOptions": {
+    "nativeTags": ["block", "template", "component", "slot"],
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+}
+
+// miniprogram-api-typings  是一种增强小程序开发体验的工具，特别适用于使用 TypeScript 进行小程序开发的开发者。
+// @uni-helper/uni-app-types 是一个用于增强 uni-app 开发体验的 TypeScript 类型声明库，它可以帮助你在编写跨平台应用时获得更准确的代码提示和类型检查，提高代码质量和开发效率。
+// @uni-helper/uni-ui-types 是一个为 uni-ui 组件库提供的 TypeScript 类型声明库。

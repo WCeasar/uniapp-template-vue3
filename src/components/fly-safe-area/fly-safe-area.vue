@@ -1,0 +1,59 @@
+<template>
+  <view :class="`safe-area-${area}`" :style="{ backgroundColor: bgColor }" />
+</template>
+
+<script lang="ts" setup>
+defineProps({
+  area: {
+    type: String,
+    default: 'bottom',
+  },
+  bgColor: {
+    type: String,
+    default: '#fff',
+  },
+})
+</script>
+
+<style lang="scss">
+/*noinspection CssInvalidFunction*/
+.safe-area-top {
+  width: 100%;
+  padding-top: constant(safe-area-inset-top); /* 兼容 iOS < 11.2 */
+  padding-top: env(safe-area-inset-top); /* 兼容 iOS >= 11.2 */
+}
+
+/*noinspection CssInvalidFunction*/
+.safe-area-bottom {
+  width: 100%;
+  padding-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
+  padding-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
+}
+
+/*noinspection CssInvalidFunction*/
+.safe-area-left {
+  width: 100%;
+  padding-left: constant(safe-area-inset-left); /* 兼容 iOS < 11.2 */
+  padding-left: env(safe-area-inset-left); /* 兼容 iOS >= 11.2 */
+}
+
+/*noinspection CssInvalidFunction*/
+.safe-area-right {
+  width: 100%;
+  padding-right: constant(safe-area-inset-right); /* 兼容 iOS < 11.2 */
+  padding-right: env(safe-area-inset-right); /* 兼容 iOS >= 11.2 */
+}
+
+/*noinspection CssInvalidFunction*/
+.safe-area-all {
+  width: 100%;
+  padding-top: constant(safe-area-inset-top);
+  padding-right: constant(safe-area-inset-right);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-left: constant(safe-area-inset-left);
+  padding-top: env(safe-area-inset-top);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+}
+</style>
